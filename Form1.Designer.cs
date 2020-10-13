@@ -40,13 +40,13 @@
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
+            this.equalsOperator = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
+            this.ClearEntry = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.CurrentOperation = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -171,15 +171,15 @@
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.button);
             // 
-            // button15
+            // equalsOperator
             // 
-            this.button15.Location = new System.Drawing.Point(227, 228);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(41, 44);
-            this.button15.TabIndex = 15;
-            this.button15.Text = "=";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
+            this.equalsOperator.Location = new System.Drawing.Point(227, 228);
+            this.equalsOperator.Name = "equalsOperator";
+            this.equalsOperator.Size = new System.Drawing.Size(41, 44);
+            this.equalsOperator.TabIndex = 15;
+            this.equalsOperator.Text = "=";
+            this.equalsOperator.UseVisualStyleBackColor = true;
+            this.equalsOperator.Click += new System.EventHandler(this.EqualsOperator);
             // 
             // button16
             // 
@@ -228,15 +228,15 @@
             this.button17.UseVisualStyleBackColor = true;
             this.button17.Click += new System.EventHandler(this.operation);
             // 
-            // button18
+            // ClearEntry
             // 
-            this.button18.Location = new System.Drawing.Point(180, 78);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(41, 44);
-            this.button18.TabIndex = 20;
-            this.button18.Text = "CE";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
+            this.ClearEntry.Location = new System.Drawing.Point(180, 78);
+            this.ClearEntry.Name = "ClearEntry";
+            this.ClearEntry.Size = new System.Drawing.Size(41, 44);
+            this.ClearEntry.TabIndex = 20;
+            this.ClearEntry.Text = "CE";
+            this.ClearEntry.UseVisualStyleBackColor = true;
+            this.ClearEntry.Click += new System.EventHandler(this.Clear_Entry);
             // 
             // button19
             // 
@@ -262,12 +262,12 @@
             this.ClientSize = new System.Drawing.Size(306, 318);
             this.Controls.Add(this.CurrentOperation);
             this.Controls.Add(this.button19);
-            this.Controls.Add(this.button18);
+            this.Controls.Add(this.ClearEntry);
             this.Controls.Add(this.button17);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button15);
+            this.Controls.Add(this.equalsOperator);
             this.Controls.Add(this.button16);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.button11);
@@ -303,13 +303,13 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button equalsOperator;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Button ClearEntry;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Label CurrentOperation;
     }

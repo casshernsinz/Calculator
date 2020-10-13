@@ -37,14 +37,14 @@ namespace Calculator
             isOperationPerformed = true;
         }
 
-        private void button18_Click(object sender, EventArgs e)
+        private void Clear_Entry(object sender, EventArgs e)
         {
             //textBox1.Text = "0";
             resultValue = 0;
             textBox1.Clear();
         }
 
-        private void button15_Click(object sender, EventArgs e)
+        private void EqualsOperator(object sender, EventArgs e)
         {
             switch (operationRun)
             {
