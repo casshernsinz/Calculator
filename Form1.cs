@@ -13,9 +13,11 @@ namespace Calculator
 {
     public partial class Calculator : Form
     {
-        Double resultValue = 0;
-        String operationRun = "";
-        bool isOperationPerformed = false;
+        Double initialValue;
+        Double nextValue;
+        Double result;
+        String operationRun;
+        //bool isOperationPerformed = false;
 
         public Calculator()
         {
@@ -26,17 +28,17 @@ namespace Calculator
         {
             Button button = (Button)sender;
             textBox1.Text = textBox1.Text + button.Text;
-            isOperationPerformed = false;
+            //isOperationPerformed = false;
         }
 
         private void operation(object sender, EventArgs e)
         {
             Button button = (Button)sender;
             operationRun = button.Text;
-            resultValue = Double.Parse(textBox1.Text);
-            CurrentOperation.Text = resultValue + " " + operationRun;
+            initialValue = Double.Parse(textBox1.Text); 
             textBox1.Clear();
-            isOperationPerformed = true;
+            CurrentOperation.Text = initialValue + " " + operationRun;
+            //isOperationPerformed = true;
         }
 
         private void Clear_Entry(object sender, EventArgs e)
@@ -49,16 +51,24 @@ namespace Calculator
             switch (operationRun)
             {
                 case "+":
-                    textBox1.Text = (resultValue + Double.Parse(textBox1.Text)).ToString();
+                    nextValue = Double.Parse(textBox1.Text);
+                    textBox1.Clear();
+                    textBox1.Text = (initialValue + nextValue).ToString();
                     break;
                 case "-":
-                    textBox1.Text = (resultValue - Double.Parse(textBox1.Text)).ToString();
+                    nextValue = Double.Parse(textBox1.Text);
+                    textBox1.Clear();
+                    textBox1.Text = (initialValue - nextValue).ToString();
                     break;
                 case "*":
-                    textBox1.Text = (resultValue * Double.Parse(textBox1.Text)).ToString();
+                    nextValue = Double.Parse(textBox1.Text);
+                    textBox1.Clear();
+                    textBox1.Text = (initialValue * nextValue).ToString();
                     break;
                 case "/":
-                    textBox1.Text = (resultValue / Double.Parse(textBox1.Text)).ToString();
+                    nextValue = Double.Parse(textBox1.Text);
+                    textBox1.Clear();
+                    textBox1.Text = (initialValue / nextValue).ToString();
                     break;
                 default:
                     textBox1.Text = "Please input your operation";
@@ -70,6 +80,7 @@ namespace Calculator
         {
             textBox1.Clear();
             CurrentOperation.Text = "";
+            initialValue = 0;
         }
     }
 }
