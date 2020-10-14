@@ -70,8 +70,13 @@ namespace Calculator
                     textBox1.Clear();
                     textBox1.Text = (initialValue / nextValue).ToString();
                     break;
+                case "^":
+                    nextValue = Double.Parse(textBox1.Text);
+                    textBox1.Clear();
+                    textBox1.Text = (Math.Pow(initialValue, nextValue)).ToString();
+                    break;
                 default:
-                    textBox1.Text = "Please input your operation";
+                    textBox1.Text = "Please input numbers.";
                     break;
             }
         }
@@ -81,6 +86,7 @@ namespace Calculator
             textBox1.Clear();
             CurrentOperation.Text = "";
             initialValue = 0;
+            nextValue = 0;
         }
     }
 }
