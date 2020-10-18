@@ -28,21 +28,16 @@ namespace Calculator
 
         private void button(object sender, EventArgs e)
         {
-            try
-            {
-                Button button = (Button)sender;
-                textBox1.Text = textBox1.Text + button.Text;
-                //isOperationPerformed = false;
-            }
-
-            catch(SyntaxErrorException E) { }
+            Button button = (Button)sender;
+            textBox1.Text = textBox1.Text + button.Text;
+            //isOperationPerformed = false;
         }
 
         private void operation(object sender, EventArgs e)
         {
             Button button = (Button)sender;
             operationRun = button.Text;
-            initialValue = Double.Parse(textBox1.Text); 
+            initialValue = Double.Parse(textBox1.Text);
             textBox1.Clear();
             CurrentOperation.Text = initialValue + " " + operationRun;
             //isOperationPerformed = true;
@@ -55,10 +50,6 @@ namespace Calculator
 
         private void EqualsOperator(object sender, EventArgs e)
         {
-            //if(operationRun == "")
-            //{
-            //    textBox1.Text = "Please input numbers and operators.";
-            //}
             switch (operationRun)
             {
                 case "+":
