@@ -265,6 +265,7 @@
             this.button19.TabIndex = 21;
             this.button19.Text = "^";
             this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.operation);
             // 
             // CurrentOperation
             // 

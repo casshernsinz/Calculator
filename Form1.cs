@@ -1,10 +1,12 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,9 +28,14 @@ namespace Calculator
 
         private void button(object sender, EventArgs e)
         {
-            Button button = (Button)sender;
-            textBox1.Text = textBox1.Text + button.Text;
-            //isOperationPerformed = false;
+            try
+            {
+                Button button = (Button)sender;
+                textBox1.Text = textBox1.Text + button.Text;
+                //isOperationPerformed = false;
+            }
+
+            catch(SyntaxErrorException E) { }
         }
 
         private void operation(object sender, EventArgs e)
@@ -48,6 +55,10 @@ namespace Calculator
 
         private void EqualsOperator(object sender, EventArgs e)
         {
+            //if(operationRun == "")
+            //{
+            //    textBox1.Text = "Please input numbers and operators.";
+            //}
             switch (operationRun)
             {
                 case "+":
@@ -76,7 +87,7 @@ namespace Calculator
                     textBox1.Text = (Math.Pow(initialValue, nextValue)).ToString();
                     break;
                 default:
-                    textBox1.Text = "Please input numbers.";
+                    textBox1.Text = "Syntax Error";
                     break;
             }
         }
