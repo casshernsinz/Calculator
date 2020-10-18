@@ -19,7 +19,6 @@ namespace Calculator
         Double nextValue;
         Double result;
         String operationRun;
-        //bool isOperationPerformed = false;
 
         public Calculator()
         {
@@ -28,9 +27,17 @@ namespace Calculator
 
         private void button(object sender, EventArgs e)
         {
-            Button button = (Button)sender;
-            textBox1.Text = textBox1.Text + button.Text;
-            //isOperationPerformed = false;
+            if(textBox1.Text == "Syntax Error")
+            {
+                textBox1.Clear();
+                Button button = (Button)sender;
+                textBox1.Text = textBox1.Text + button.Text;
+            }
+            else 
+            {
+                Button button = (Button)sender;
+                textBox1.Text = textBox1.Text + button.Text;
+            }
         }
 
         private void operation(object sender, EventArgs e)
@@ -40,7 +47,6 @@ namespace Calculator
             initialValue = Double.Parse(textBox1.Text);
             textBox1.Clear();
             CurrentOperation.Text = initialValue + " " + operationRun;
-            //isOperationPerformed = true;
         }
 
         private void Clear_Entry(object sender, EventArgs e)
@@ -87,6 +93,7 @@ namespace Calculator
         {
             textBox1.Clear();
             CurrentOperation.Text = "";
+            operationRun = "";
             initialValue = 0;
             nextValue = 0;
         }
