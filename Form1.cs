@@ -49,7 +49,7 @@ namespace Calculator
             initialValue = Double.Parse(textBox1.Text);
             textBox1.Clear();
             CurrentOperation.Text = initialValue + " " + operationRun;
-            history.Add(CurrentOperation.Text);
+            history.Add(CurrentOperation.Text + nextValue);
         }
 
         private void Clear_Entry(object sender, EventArgs e)
