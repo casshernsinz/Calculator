@@ -17,8 +17,10 @@ namespace Calculator
     {
         Double initialValue;
         Double nextValue;
-        Double result;
+        //Double result;
         String operationRun;
+        List<string> history = new List<string>();
+        Boolean operationSolved = false;
 
         public Calculator()
         {
@@ -27,13 +29,13 @@ namespace Calculator
 
         private void button(object sender, EventArgs e)
         {
-            if(textBox1.Text == "Syntax Error")
+            if(textBox1.Text == "Syntax Error" || operationSolved == true)
             {
                 textBox1.Clear();
                 Button button = (Button)sender;
                 textBox1.Text = textBox1.Text + button.Text;
             }
-            else 
+            else if(operationSolved == false)
             {
                 Button button = (Button)sender;
                 textBox1.Text = textBox1.Text + button.Text;
@@ -47,6 +49,7 @@ namespace Calculator
             initialValue = Double.Parse(textBox1.Text);
             textBox1.Clear();
             CurrentOperation.Text = initialValue + " " + operationRun;
+            history.Add(CurrentOperation.Text);
         }
 
         private void Clear_Entry(object sender, EventArgs e)
@@ -62,29 +65,44 @@ namespace Calculator
                     nextValue = Double.Parse(textBox1.Text);
                     textBox1.Clear();
                     textBox1.Text = (initialValue + nextValue).ToString();
+                    operationRun = "";
+                    CurrentOperation.Text = "";
+                    operationSolved = true;
                     break;
                 case "-":
                     nextValue = Double.Parse(textBox1.Text);
                     textBox1.Clear();
                     textBox1.Text = (initialValue - nextValue).ToString();
+                    operationRun = "";
+                    CurrentOperation.Text = "";
+                    operationSolved = true;
                     break;
                 case "*":
                     nextValue = Double.Parse(textBox1.Text);
                     textBox1.Clear();
                     textBox1.Text = (initialValue * nextValue).ToString();
+                    operationRun = "";
+                    CurrentOperation.Text = "";
+                    operationSolved = true;
                     break;
                 case "/":
                     nextValue = Double.Parse(textBox1.Text);
                     textBox1.Clear();
                     textBox1.Text = (initialValue / nextValue).ToString();
+                    operationRun = "";
+                    CurrentOperation.Text = "";
+                    operationSolved = true;
                     break;
                 case "^":
                     nextValue = Double.Parse(textBox1.Text);
                     textBox1.Clear();
                     textBox1.Text = (Math.Pow(initialValue, nextValue)).ToString();
+                    operationRun = "";
+                    CurrentOperation.Text = "";
+                    operationSolved = true;
                     break;
                 default:
-                    textBox1.Text = "Syntax Error";
+                    textBox1.Text = textBox1.Text;
                     break;
             }
         }
@@ -96,6 +114,7 @@ namespace Calculator
             operationRun = "";
             initialValue = 0;
             nextValue = 0;
+            operationSolved = false;
         }
     }
 }
