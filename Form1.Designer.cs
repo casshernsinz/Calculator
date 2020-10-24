@@ -42,13 +42,13 @@
             this.button14 = new System.Windows.Forms.Button();
             this.equalsOperator = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBox = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.ClearEntry = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
-            this.CurrentOperation = new System.Windows.Forms.Label();
+            this.curOpr = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -205,14 +205,14 @@
             this.button16.UseVisualStyleBackColor = true;
             this.button16.Click += new System.EventHandler(this.button);
             // 
-            // textBox1
+            // txtBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(39, 52);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(229, 26);
-            this.textBox1.TabIndex = 16;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBox.Location = new System.Drawing.Point(39, 52);
+            this.txtBox.Name = "txtBox";
+            this.txtBox.Size = new System.Drawing.Size(229, 26);
+            this.txtBox.TabIndex = 16;
+            this.txtBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // button7
             // 
@@ -267,26 +267,26 @@
             this.button19.UseVisualStyleBackColor = true;
             this.button19.Click += new System.EventHandler(this.operation);
             // 
-            // CurrentOperation
+            // curOpr
             // 
-            this.CurrentOperation.AutoSize = true;
-            this.CurrentOperation.Location = new System.Drawing.Point(39, 33);
-            this.CurrentOperation.Name = "CurrentOperation";
-            this.CurrentOperation.Size = new System.Drawing.Size(0, 13);
-            this.CurrentOperation.TabIndex = 22;
+            this.curOpr.AutoSize = true;
+            this.curOpr.Location = new System.Drawing.Point(39, 33);
+            this.curOpr.Name = "curOpr";
+            this.curOpr.Size = new System.Drawing.Size(0, 13);
+            this.curOpr.TabIndex = 22;
             // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(306, 318);
-            this.Controls.Add(this.CurrentOperation);
+            this.Controls.Add(this.curOpr);
             this.Controls.Add(this.button19);
             this.Controls.Add(this.ClearEntry);
             this.Controls.Add(this.button17);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button7);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBox);
             this.Controls.Add(this.equalsOperator);
             this.Controls.Add(this.button16);
             this.Controls.Add(this.button14);
@@ -326,13 +326,13 @@
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button equalsOperator;
         private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBox;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Button ClearEntry;
         private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Label CurrentOperation;
+        private System.Windows.Forms.Label curOpr;
     }
 }
 

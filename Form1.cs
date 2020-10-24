@@ -20,7 +20,8 @@ namespace Calculator
         //Double result;
         String operationRun;
         List<string> history = new List<string>();
-        Boolean operationSolved = false;
+        Boolean oprSolved = false;
+        Boolean oprInvoked = false;
 
         public Calculator()
         {
@@ -29,16 +30,16 @@ namespace Calculator
 
         private void button(object sender, EventArgs e)
         {
-            if(textBox1.Text == "Syntax Error" || operationSolved == true)
+            if(txtBox.Text == "Syntax Error" || oprInvoked == true)
             {
-                textBox1.Clear();
+                txtBox.Clear();
                 Button button = (Button)sender;
-                textBox1.Text = textBox1.Text + button.Text;
+                txtBox.Text = txtBox.Text + button.Text;
             }
-            else if(operationSolved == false)
+            else if(oprInvoked == false)
             {
                 Button button = (Button)sender;
-                textBox1.Text = textBox1.Text + button.Text;
+                txtBox.Text = txtBox.Text + button.Text;
             }
         }
 
@@ -46,15 +47,10 @@ namespace Calculator
         {
             Button button = (Button)sender;
             operationRun = button.Text;
-            initialValue = Double.Parse(textBox1.Text);
-            textBox1.Clear();
-            CurrentOperation.Text = initialValue + " " + operationRun;
-            history.Add(CurrentOperation.Text + nextValue);
-        }
-
-        private void Clear_Entry(object sender, EventArgs e)
-        {
-            textBox1.Clear();
+            initialValue = Double.Parse(txtBox.Text);
+            txtBox.Clear();
+            curOpr.Text = initialValue + " " + operationRun;
+            history.Add(curOpr.Text + nextValue);
         }
 
         private void EqualsOperator(object sender, EventArgs e)
@@ -62,59 +58,68 @@ namespace Calculator
             switch (operationRun)
             {
                 case "+":
-                    nextValue = Double.Parse(textBox1.Text);
-                    textBox1.Clear();
-                    textBox1.Text = (initialValue + nextValue).ToString();
+                    nextValue = Double.Parse(txtBox.Text);
+                    txtBox.Clear();
+                    txtBox.Text = (initialValue + nextValue).ToString();
                     operationRun = "";
-                    CurrentOperation.Text = "";
-                    operationSolved = true;
+                    curOpr.Text = "";
+                    oprInvoked = true;
+                    if(oprInvoked == true && oprSolved != true)
+                    {
+
+                    }
                     break;
                 case "-":
-                    nextValue = Double.Parse(textBox1.Text);
-                    textBox1.Clear();
-                    textBox1.Text = (initialValue - nextValue).ToString();
+                    nextValue = Double.Parse(txtBox.Text);
+                    txtBox.Clear();
+                    txtBox.Text = (initialValue - nextValue).ToString();
                     operationRun = "";
-                    CurrentOperation.Text = "";
-                    operationSolved = true;
+                    curOpr.Text = "";
+                    oprInvoked = true;
                     break;
                 case "*":
-                    nextValue = Double.Parse(textBox1.Text);
-                    textBox1.Clear();
-                    textBox1.Text = (initialValue * nextValue).ToString();
+                    nextValue = Double.Parse(txtBox.Text);
+                    txtBox.Clear();
+                    txtBox.Text = (initialValue * nextValue).ToString();
                     operationRun = "";
-                    CurrentOperation.Text = "";
-                    operationSolved = true;
+                    curOpr.Text = "";
+                    oprInvoked = true;
                     break;
                 case "/":
-                    nextValue = Double.Parse(textBox1.Text);
-                    textBox1.Clear();
-                    textBox1.Text = (initialValue / nextValue).ToString();
+                    nextValue = Double.Parse(txtBox.Text);
+                    txtBox.Clear();
+                    txtBox.Text = (initialValue / nextValue).ToString();
                     operationRun = "";
-                    CurrentOperation.Text = "";
-                    operationSolved = true;
+                    curOpr.Text = "";
+                    oprInvoked = true;
                     break;
                 case "^":
-                    nextValue = Double.Parse(textBox1.Text);
-                    textBox1.Clear();
-                    textBox1.Text = (Math.Pow(initialValue, nextValue)).ToString();
+                    nextValue = Double.Parse(txtBox.Text);
+                    txtBox.Clear();
+                    txtBox.Text = (Math.Pow(initialValue, nextValue)).ToString();
                     operationRun = "";
-                    CurrentOperation.Text = "";
-                    operationSolved = true;
+                    curOpr.Text = "";
+                    oprInvoked = true;
                     break;
                 default:
-                    textBox1.Text = textBox1.Text;
+                    txtBox.Text = txtBox.Text;
                     break;
             }
+        }
+        private void Clear_Entry(object sender, EventArgs e)
+        {
+            txtBox.Clear();
         }
 
         private void ClearAll(object sender, EventArgs e)
         {
-            textBox1.Clear();
-            CurrentOperation.Text = "";
+            txtBox.Clear();
+            curOpr.Text = "";
             operationRun = "";
             initialValue = 0;
             nextValue = 0;
-            operationSolved = false;
+            oprSolved = false;
+            oprInvoked = false;
         }
     }
 }
